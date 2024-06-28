@@ -1,11 +1,11 @@
-import { FC } from 'react';
+import ExplorerLayout from './layout';
 
-const IndexPage: FC = () => {
+const ExplorerPage = () => {
   return (
-    <div className="index-page">
-      Welcome to the Index Page
-    </div>
+    <ExplorerLayout>
+      <div>Explorer Page Content</div>
+    </ExplorerLayout>
   );
 };
 
-export default IndexPage;
+export default ExplorerPage;

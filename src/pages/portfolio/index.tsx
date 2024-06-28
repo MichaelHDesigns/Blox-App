@@ -1,11 +1,11 @@
-import { FC } from 'react';
+import PortfolioLayout from './layout';
 
-const IndexPage: FC = () => {
+const PortfolioPage = () => {
   return (
-    <div className="index-page">
-      Welcome to the Index Page
-    </div>
+    <PortfolioLayout>
+      <div>Portfolio Page Content</div>
+    </PortfolioLayout>
   );
 };
 
-export default IndexPage;
+export default PortfolioPage;

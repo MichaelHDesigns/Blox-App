@@ -1,11 +1,13 @@
 import { FC, ReactNode } from 'react';
 
-const Layout: FC<{ children: ReactNode }> = ({ children }) => {
+const ExplorerLayout: FC<{ children: ReactNode }> = ({ children }) => {
   return (
-    <div className="layout">
-      {children}
+    <div className="explorer-layout">
+      <header>Explorer Header</header>
+      <main>{children}</main>
+      <footer>Explorer Footer</footer>
     </div>
   );
 };
 
-export default Layout;
+export default ExplorerLayout;

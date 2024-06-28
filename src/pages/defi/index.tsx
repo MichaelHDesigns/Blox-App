@@ -1,11 +1,11 @@
-import { FC } from 'react';
+import DefiLayout from './layout';
 
-const IndexPage: FC = () => {
+const DefiPage = () => {
   return (
-    <div className="index-page">
-      Welcome to the Index Page
-    </div>
+    <DefiLayout>
+      <div>Defi Page Content</div>
+    </DefiLayout>
   );
 };
 
-export default IndexPage;
+export default DefiPage;

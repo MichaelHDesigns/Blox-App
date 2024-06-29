@@ -17,17 +17,23 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply text-black dark:text-white bg-white dark:bg-black;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@media (max-width: 799px) {
+  .lg\:block {
+    display: none;
+  }
+}
+
+@media (max-width: 549px) {
+  .lg\:hidden {
+    display: none;
   }
 }

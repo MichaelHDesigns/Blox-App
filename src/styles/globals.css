@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Default styles */
+aside {
+  width: 100%; /* Take full width initially */
+  position: static; /* Normal flow initially */
+  background-color: #f7fafc;
+  border-right: 1px solid #e2e8f0;
+}
+
+nav {
+  padding: 1rem;
+}
+
+nav.py-4 {
+  padding: 4rem; /* Adjusted padding for specific cases */
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  text-align: left; /* Align text to the left */
+}
+
+/* Dark mode */
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -26,14 +54,71 @@ body {
   }
 }
 
-@media (max-width: 799px) {
-  .lg\:block {
-    display: none;
+/* Responsive adjustments */
+@media (min-width: 800px) {
+  aside {
+    width: 16rem; /* Fixed width for larger screens */
+    position: sticky;
+    top: 0;
+  }
+
+nav {
+  padding: 1rem;
+}
+
+nav.py-4 {
+  padding: 5rem; /* Adjusted padding for specific cases */
+}
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Center the links horizontally */
+    padding: 0; /* Reset padding */
+  }
+
+  li {
+    padding: 0.25rem 0.5rem;
+    text-align: left; /* Ensure text alignment to the left */
+  }
+
+  button {
+    display: block;
+    margin: 1rem auto; /* Center the toggle button */
   }
 }
 
-@media (max-width: 549px) {
-  .lg\:hidden {
-    display: none;
+@media (max-width: 799px) {
+  aside {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border: none; /* Remove border for smaller screens */
+  }
+
+  nav {
+    padding: 0.5rem;
+  }
+
+  nav.py-4 {
+    padding: 0rem; /* Adjusted padding for specific cases */
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Center the links horizontally */
+    padding: 0; /* Reset padding */
+  }
+
+  li {
+    padding: 0.25rem 0.5rem;
+    text-align: left; /* Ensure text alignment to the left */
+  }
+
+  button {
+    display: block;
+    margin: 1rem auto; /* Center the toggle button */
   }
 }

@@ -1,21 +1,19 @@
+/* Tailwind CSS directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Default styles */
 aside {
-  width: 100%; /* Take full width initially */
-  position: static; /* Normal flow initially */
+  /* Width and position will be managed by Tailwind CSS classes */
   background-color: #f7fafc;
   border-right: 1px solid #e2e8f0;
+  padding-top: 5rem; /* Add top padding for vertical centering */
+  padding-bottom: 2rem; /* Add bottom padding for vertical centering */
 }
 
 nav {
   padding: 1rem;
-}
-
-nav.py-4 {
-  padding: 4rem; /* Adjusted padding for specific cases */
 }
 
 ul {
@@ -24,9 +22,9 @@ ul {
 }
 
 li {
-  padding: 0.5rem 1rem;
+  padding: 1rem 1.5rem; /* Adjust padding for better spacing */
   cursor: pointer;
-  text-align: left; /* Align text to the left */
+  text-align: left;
 }
 
 /* Dark mode */
@@ -48,77 +46,62 @@ body {
   @apply text-black dark:text-white bg-white dark:bg-black;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
 /* Responsive adjustments */
 @media (min-width: 800px) {
   aside {
-    width: 16rem; /* Fixed width for larger screens */
+    width: 16rem; /* Larger width on larger screens */
     position: sticky;
     top: 0;
+    height: 100vh; /* Ensure full height on larger screens */
+    overflow-y: auto; /* Add scroll if content exceeds height */
   }
 
-nav {
-  padding: 1rem;
-}
-
-nav.py-4 {
-  padding: 5rem; /* Adjusted padding for specific cases */
-}
-
-  ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: center; /* Center the links horizontally */
-    padding: 0; /* Reset padding */
+  nav {
+    padding: 1rem;
   }
 
   li {
-    padding: 0.25rem 0.5rem;
-    text-align: left; /* Ensure text alignment to the left */
+    padding: 0.75rem 1rem; /* Adjusted padding for larger screens */
   }
 
   button {
     display: block;
-    margin: 1rem auto; /* Center the toggle button */
+    margin: 1rem auto;
   }
 }
 
 @media (max-width: 799px) {
   aside {
     position: fixed;
-    bottom: 0;
+    bottom: 0; /* Position fixed to the bottom */
     left: 0;
     width: 100%;
-    border: none; /* Remove border for smaller screens */
+    max-height: calc(100vh - 5rem); /* Adjust height to fit remaining viewport */
+    overflow-y: auto; /* Add scroll if content exceeds height */
+    z-index: 10; /* Ensure it's above content */
   }
 
   nav {
     padding: 0.5rem;
   }
 
-  nav.py-4 {
-    padding: 0rem; /* Adjusted padding for specific cases */
-  }
-
-  ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: center; /* Center the links horizontally */
-    padding: 0; /* Reset padding */
-  }
-
   li {
-    padding: 0.25rem 0.5rem;
-    text-align: left; /* Ensure text alignment to the left */
+    padding: 0.5rem 1rem; /* Adjusted padding for smaller screens */
   }
 
   button {
     display: block;
-    margin: 1rem auto; /* Center the toggle button */
+    margin: 1rem auto;
   }
+}
+
+/* Increase icon size */
+svg {
+  font-size: 1.5rem; /* Adjust icon size as needed */
+}
+
+/* Example of defining the icon-collapse class */
+.icon-collapse {
+  font-size: 2.5rem; /* Adjust size as needed */
+  margin: 0.5rem 0; /* Adjust margin to bring icons closer together */
 }

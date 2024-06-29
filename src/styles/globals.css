@@ -46,37 +46,14 @@ body {
   @apply text-black dark:text-white bg-white dark:bg-black;
 }
 
-/* Responsive adjustments */
-@media (min-width: 800px) {
-  aside {
-    width: 16rem; /* Larger width on larger screens */
-    position: sticky;
-    top: 0;
-    height: 100vh; /* Ensure full height on larger screens */
-    overflow-y: auto; /* Add scroll if content exceeds height */
-  }
-
-  nav {
-    padding: 1rem;
-  }
-
-  li {
-    padding: 0.75rem 1rem; /* Adjusted padding for larger screens */
-  }
-
-  button {
-    display: block;
-    margin: 1rem auto;
-  }
-}
-
-@media (max-width: 799px) {
+/* Responsive adjustments for mobile screens */
+@media (max-width: 1025px) {
   aside {
     position: fixed;
     bottom: 0; /* Position fixed to the bottom */
     left: 0;
     width: 100%;
-    max-height: calc(100vh - 5rem); /* Adjust height to fit remaining viewport */
+    height: 70px; /* Set specific height */
     overflow-y: auto; /* Add scroll if content exceeds height */
     z-index: 10; /* Ensure it's above content */
   }
@@ -87,6 +64,7 @@ body {
 
   li {
     padding: 0.5rem 1rem; /* Adjusted padding for smaller screens */
+    text-align: center; /* Center align text for better readability */
   }
 
   button {
@@ -95,9 +73,20 @@ body {
   }
 }
 
+/* Responsive adjustments for smaller screens */
+@media (max-width: 500px) {
+  aside {
+    height: 60px; /* Reduce height further for smaller screens */
+  }
+
+  li {
+    padding: 0.25rem 0.75rem; /* Further adjust padding for very small screens */
+  }
+}
+
 /* Increase icon size */
 svg {
-  font-size: 1.5rem; /* Adjust icon size as needed */
+  font-size: 2.0rem; /* Adjust icon size as needed */
 }
 
 /* Example of defining the icon-collapse class */

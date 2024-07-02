@@ -10,6 +10,8 @@ import {
   RiGlobalLine,
   RiTwitterFill,
   RiTiktokFill,
+  RiInstagramLine,
+  RiYoutubeLine,
   RiCollapseDiagonalFill,
   RiToggleLine,
 } from "react-icons/ri";
@@ -17,9 +19,14 @@ import {
 const SideNav: React.FC = () => {
   const { darkMode, toggleDarkMode } = useDarkMode();
   const [collapsed, setCollapsed] = useState(false); // Start with sidebar open
+  const [portfolioSubmenuOpen, setPortfolioSubmenuOpen] = useState(false); // State to manage submenu visibility
 
   const toggleSidebar = () => {
     setCollapsed(!collapsed);
+  };
+
+  const togglePortfolioSubmenu = () => {
+    setPortfolioSubmenuOpen(!portfolioSubmenuOpen);
   };
 
   useEffect(() => {
@@ -87,24 +94,46 @@ const SideNav: React.FC = () => {
           </Link>
         </li>
         <li
-          className={`px-2 py-2 w-full lg:w-auto ${
-            darkMode ? "text-white" : "text-black"
-          } hover:bg-gray-300 ${darkMode ? "dark:hover:bg-gray-700" : ""}`}
-        >
-          <Link href="/portfolio" legacyBehavior>
-            <a
-              className="flex items-center text-xs lg:text-base"
-              title={!collapsed ? "Portfolio" : "Portfolio"}
-            >
-              <div className="flex items-center">
-                <RiAccountCircleLine
-                  className={`${collapsed ? "icon-collapse" : "text-base"} mr-2 h-6 w-6`}
-                />
-                {!collapsed && <span>Portfolio</span>}
-              </div>
-            </a>
-          </Link>
-        </li>
+  className={`px-2 py-2 w-full lg:w-auto ${
+    darkMode ? "text-white" : "text-black"
+  } hover:bg-gray-300 ${darkMode ? "dark:hover:bg-gray-700" : ""}`}
+>
+  <div
+    className="flex items-center cursor-pointer"
+    onClick={togglePortfolioSubmenu}
+    title={!collapsed ? "Portfolio" : "Portfolio"}
+  >
+    <RiAccountCircleLine
+      className={`${collapsed ? "icon-collapse" : "text-base"} mr-2 h-6 w-6`}
+    />
+    {!collapsed && <span>Portfolio</span>}
+  </div>
+  {/* Submenu */}
+  {portfolioSubmenuOpen && (
+    <ul className="ml-8">
+      <li className={`py-1 ${darkMode ? "text-white" : "text-black"} hover:bg-gray-300 ${darkMode ? "dark:hover:bg-gray-700" : ""}`}>
+        <Link href="/portfolio/my-account" legacyBehavior>
+          <a className="flex items-center text-xs lg:text-sm">
+            <RiAccountCircleLine
+              className={`${collapsed ? "icon-collapse" : "text-base"} mr-2 h-6 w-6`}
+            />
+            My Account
+          </a>
+        </Link>
+      </li>
+      <li className={`py-1 ${darkMode ? "text-white" : "text-black"} hover:bg-gray-300 ${darkMode ? "dark:hover:bg-gray-700" : ""}`}>
+        <Link href="/portfolio" legacyBehavior>
+                    <a className="flex items-center text-xs lg:text-sm">
+            <RiMoneyDollarCircleLine
+              className={`${collapsed ? "icon-collapse" : "text-base"} mr-2 h-6 w-6`}
+            />
+            Portfolio
+          </a>
+        </Link>
+      </li>
+    </ul>
+  )}
+</li>
         <li
           className={`px-2 py-2 w-full lg:w-auto ${
             darkMode ? "text-white" : "text-black"
@@ -201,6 +230,22 @@ const SideNav: React.FC = () => {
             className={`${darkMode ? "text-white" : "text-black"} hover:text-gray-600 flex items-center`}
           >
             <RiTiktokFill className="icon-size" />
+          </a>
+          <a
+            href="https://instagram.com/bloxsolutions"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${darkMode ? "text-white" : "text-black"} hover:text-gray-600 flex items-center`}
+          >
+            <RiInstagramLine className="icon-size" />
+          </a>
+          <a
+            href="https://youtube.com/@bloxsolutions"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${darkMode ? "text-white" : "text-black"} hover:text-gray-600 flex items-center`}
+          >
+            <RiYoutubeLine className="icon-size" />
           </a>
         </div>
       )}

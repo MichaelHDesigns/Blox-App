@@ -16,6 +16,13 @@ nav {
   padding: 1rem;
 }
 
+/* Additional styles for the pop-out submenu */
+.nav-item:hover .submenu {
+  display: block;
+}
+
+
+
 ul {
   list-style-type: none;
   padding: 0;

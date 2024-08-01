@@ -5,6 +5,7 @@ import {
   RiHome2Line,
   RiAccountCircleLine,
   RiMoneyDollarCircleLine,
+  RiExchange2Line,
   RiTableAltLine,
   RiAlarmWarningLine,
   RiGlobalLine,
@@ -128,6 +129,16 @@ const SideNav: React.FC = () => {
               className={`${collapsed ? "icon-collapse" : "text-base"} mr-2 h-6 w-6`}
             />
             Portfolio
+          </a>
+        </Link>
+      </li>
+      <li className={`py-1 ${darkMode ? "text-white" : "text-black"} hover:bg-gray-300 ${darkMode ? "dark:hover:bg-gray-700" : ""}`}>
+        <Link href="https://ref.bloxsolutions.app" legacyBehavior>
+                    <a className="flex items-center text-xs lg:text-sm">
+            <RiExchange2Line
+              className={`${collapsed ? "icon-collapse" : "text-base"} mr-2 h-6 w-6`}
+            />
+            Referrals
           </a>
         </Link>
       </li>
